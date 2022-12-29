@@ -1,0 +1,83 @@
+{
+  "data": {
+    "id": "IB3593",
+    "availability_status": "NOT_AVAILABLE",
+    "variation_list": [
+      {
+        "sku": "IB3593_185",
+        "size": "XS",
+        "availability": 0,
+        "availability_status": "NOT_AVAILABLE"
+      },
+      {
+        "sku": "IB3593_195",
+        "size": "S",
+        "availability": 0,
+        "availability_status": "NOT_AVAILABLE"
+      },
+      {
+        "sku": "IB3593_205",
+        "size": "M",
+        "availability": 0,
+        "availability_status": "NOT_AVAILABLE"
+      },
+      {
+        "sku": "IB3593_210",
+        "size": "L",
+        "availability": 0,
+        "availability_status": "NOT_AVAILABLE"
+      },
+      {
+        "sku": "IB3593_220",
+        "size": "XL",
+        "availability": 0,
+        "availability_status": "NOT_AVAILABLE"
+      },
+      {
+        "sku": "IB3593_230",
+        "size": "2XL",
+        "availability": 0,
+        "availability_status": "NOT_AVAILABLE"
+      },
+      {
+        "sku": "IB3593_235",
+        "size": "3XL",
+        "availability": 0,
+        "availability_status": "NOT_AVAILABLE"
+      }
+    ]
+  },
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "content-type": "application/json",
+    "x-dw-request-base-id": "aQcE15r6rGMBAAB_",
+    "x-dw-trace-id": "aQcE15r6rGMBAAB_",
+    "x-frame-options": "DENY",
+    "pragma": "no-cache",
+    "cf-cache-status": "DYNAMIC",
+    "cf-ray": "780f15e9d8918696-ORD",
+    "content-length": "170",
+    "vary": "Accept-Encoding",
+    "cache-control": "no-cache, no-store, must-revalidate",
+    "expires": "Thu, 29 Dec 2022 02:25:43 GMT",
+    "date": "Thu, 29 Dec 2022 02:25:43 GMT",
+    "connection": "close",
+    "set-cookie": [
+      "geo_ip=190.185.144.201; path=/",
+      "geo_country=AR; path=/",
+      "akacd_plp_prod_adidas_grayling=3849733542~rv=43~id=79389bc75001b25f7e00b1558cafd665; path=/;; Secure; SameSite=None",
+      "_abck=C8AAFA7EBFAA4E8DC6BD3B2B09185713~-1~YAAQNZjAumhEG+yEAQAAnx6zWwmKhqUbokxn1NScAHQGfFCpKbBArP5CtGMRsM8A5RdY3UkhhtUyiJbfaTQU3+ONct+DcuAXedlGjs1OvUrjnBVquQpXpf6UhEvlEsK6iEOlB62gCD08mY4ELfPrI4CR5ckljbSS/QY8pPdcjNNgZMBuKK/7aHrtYhS6LOERu69MSuOg4o97nLr93HcyuABUkSNozyX4JCfT6D6XKlxjVV5xVRl7f4IWiHKaooxELTmHgHZQ7KegqdN9fSqnQqk9aB7RvrS4EetIhaiEn+arYoJzBYiAvwl/QsboaQoUaOpaRw82KLudshwjNKC3dUjYM4/BLl901pzV9tX2CjQq~-1~-1~1672284332; Domain=.adidas.com.ar; Path=/; Expires=Thu, 05 Jan 2023 02:25:43 GMT; Max-Age=604800; Secure",
+      "ak_bmsc=183E74252CBCC0F69C9641A9E9D9F181~000000000000000000000000000000~YAAQNZjAumlEG+yEAQAAnx6zWxIB2RvF3qg3Zzh6qyGX8zeJ9N9ik1OzFaazyYCJ0JxgeGGO3KaoN2akviuEVNiyWdWYVc4pD2Z1YUfD7AAZIxCp5lP/7Tb1yCjgilD8XZl64YdhCHykW/gQccJMR5hlc/m5hWVmDaEOr3TURfvNvQO7l5ovvB2FLA8NXiO64FQ1TP7TE+SThim5EUD6VwWuAdN8fNIHRVMIMq3Ja/6PEFFE0aG1ENnBTDmZZ1OSXHsWewTFwSTy54eEfQJLu2A4pVLEfxuGBI6PHV0ws5kaV8VtEnT/dKmv9Z+aaIHg2U+QXm1BdtUlim2nBZNH51xYQGYkQEXQbe6NEtnlSS5rPnK2dV6LqZrd0S760f83AQ==; Domain=.adidas.com.ar; Path=/; Expires=Thu, 29 Dec 2022 04:25:43 GMT; Max-Age=7200; HttpOnly",
+      "bm_sz=F6050523507145C20EB59437D8E628B3~YAAQNZjAumpEG+yEAQAAnx6zWxIfw5xJkYzvCx9HB8pWetcGE7L62bv6jMosYiBwVdMUgImp7paAjC0XMLw4UggdD2AA4DF9zm9xHCWyEMEQBswJlik3j0KrByX6xwE3h1owreiwObN5VCfqlsASAvamHYSbzKHnbdrXj+XSwF0Yuu570xB4aA4LdEVHq1Ytvin7FjSWQr9SnBM0uSFhaevGT4LXR8JWhSEKRv1jytBozP/o6ub/MRfeuD4GqGuYeT32/4fLWmImuMu+6hcZZHKd3p20K9F5fWC374wi8Yx3BAu+jnv0HRmFhNuW3O1Ttlwng4mxf6JD5eAe7Z1GLMfMrJxmSuOrsGutcAZ4HDVOpyPdpQJ4BE5zg0dHCk1Wb0ujG3fo~3356995~3753269; Domain=.adidas.com.ar; Path=/; Expires=Thu, 29 Dec 2022 06:25:43 GMT; Max-Age=14400"
+    ],
+    "server-timing": "cdn-cache; desc=REVALIDATE, edge; dur=1, origin; dur=102",
+    "remaining_edge_ttl": "51",
+    "timing-allow-origin": "*",
+    "access-control-max-age": "86400",
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "GET,POST",
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains ; preload"
+  }
+}

@@ -1,0 +1,11 @@
+.main-container {
+  height: 100%;
+  background: url('../../../assets/messi_mate.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.main-container > .chakra-stack {
+  height: 100%;
+}
