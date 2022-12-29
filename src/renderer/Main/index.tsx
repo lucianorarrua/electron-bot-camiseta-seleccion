@@ -11,6 +11,8 @@ import {
   SliderMark,
   HStack,
   Text,
+  FormLabel,
+  Switch,
   useToast,
 } from '@chakra-ui/react';
 import './index.css';
@@ -22,8 +24,9 @@ const getShirtAvailability =
   window?.electron?.ipcRenderer?.getShirtAvailability;
 
 const focusWindow = window?.electron?.ipcRenderer?.focus;
+const playAlertSound = window?.electron?.ipcRenderer?.playAlertSound;
 
-const MIN_TIME = 3;
+const MIN_TIME = 10;
 const MAX_TIME = 300;
 const DEFAULT_CHECK_INTERVAL = 60;
 const DEFAULT_WATCH_VARIANTS: VariantSize[] = [
@@ -44,6 +47,7 @@ export default function Main() {
   const toast = useToast();
   const [checkInterval, setCheckInterval] = useState(DEFAULT_CHECK_INTERVAL);
   const [lastCheckDate, setlastCheckDate] = useState<Date | undefined>();
+  const [isSoundEnabled, setIsSoundEnabled] = useState(true);
   const [lastResponse, setLastResponse] = useState<
     ProductAvailability | undefined
   >();
@@ -62,11 +66,10 @@ export default function Main() {
   }
 
   async function checkAvailability() {
-    console.log('check');
-
     try {
       const axiosResponse = await getShirtAvailability();
       const responseData = axiosResponse.data;
+
       setlastCheckDate(new Date());
       setLastResponse(responseData);
     } catch (error) {
@@ -105,6 +108,9 @@ export default function Main() {
       duration: null,
       isClosable: true,
     });
+    if (isSoundEnabled) {
+      playAlertSound();
+    }
     focusWindow();
   }
 
@@ -160,6 +166,29 @@ export default function Main() {
       maxW="container.lg"
       color="#262626"
     >
+      <Box
+        padding={2}
+        position="fixed"
+        top="10px"
+        right="10px"
+        display="flex"
+        alignItems="center"
+        bg="whiteAlpha.700"
+        fontSize="sm"
+        color="black"
+        borderRadius={4}
+      >
+        <FormLabel htmlFor="email-alerts" mb="0">
+          🔊¿Sonido?
+        </FormLabel>
+        <Switch
+          isChecked={isSoundEnabled}
+          onChange={(event) => {
+            setIsSoundEnabled(event?.target?.checked);
+          }}
+        />
+      </Box>
+
       <VStack
         divider={<StackDivider borderColor="gray.200" />}
         spacing={4}

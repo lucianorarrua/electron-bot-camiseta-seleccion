@@ -23,6 +23,7 @@ declare global {
           AxiosResponse<ProductAvailability, any>
         >;
         focus(): void;
+        playAlertSound(): void;
         sendMessage(channel: Channels, args: unknown[]): void;
         on(
           channel: Channels,

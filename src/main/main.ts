@@ -13,6 +13,7 @@ import { app, BrowserWindow, shell, ipcMain, net } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import axios from 'axios';
+import sound from 'sound-play';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 
@@ -32,11 +33,25 @@ ipcMain.on('ipc-example', async (event, arg) => {
   event.reply('ipc-example', msgTemplate('pong'));
 });
 
+ipcMain.handle('play-alert-sound', async () => {
+  // const filePathSound1 = path.join(__dirname, 'quick-tone.wav');
+  // const filePathSound2 = path.join(__dirname, 'que_mira_bobo.mp3');
+  const filePathSound1 = `${process.resourcesPath}\\assets\\quick-tone.wav`;
+  const filePathSound2 = `${process.resourcesPath}\\assets\\que_mira_bobo.mp3`;
+  sound
+    .play(filePathSound1)
+    .then(() => {
+      sound.play(filePathSound2);
+    })
+    .catch(console.error);
+});
+
 ipcMain.handle('getShirtAvailability', async () => {
   const axiosResponse = await axios.get(
     'https://www.adidas.com.ar/api/products/IB3593/availability'
   );
   const { data, status, statusText, headers } = axiosResponse;
+
   return { data, status, statusText, headers };
 });
 

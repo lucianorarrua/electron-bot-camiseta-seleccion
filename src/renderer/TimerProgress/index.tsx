@@ -13,7 +13,7 @@ export default function TimerProgress({
     useState<number>(tickTime);
 
   React.useEffect(() => {
-    setLoaderProgessValue(100);
+    setLoaderProgessValue(tickTime);
     const intervalId = setInterval(() => {
       setLoaderProgessValue((lpv) => {
         const newValue = lpv - 500;

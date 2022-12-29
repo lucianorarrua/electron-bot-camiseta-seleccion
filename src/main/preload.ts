@@ -14,6 +14,9 @@ contextBridge.exposeInMainWorld('electron', {
     focus() {
       ipcRenderer.invoke('flash-taskbar');
     },
+    playAlertSound() {
+      ipcRenderer.invoke('play-alert-sound');
+    },
     on(channel: Channels, func: (...args: unknown[]) => void) {
       const subscription = (_event: IpcRendererEvent, ...args: unknown[]) =>
         func(...args);
