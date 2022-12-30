@@ -9,7 +9,7 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain, net } from 'electron';
+import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import axios from 'axios';
@@ -33,23 +33,17 @@ ipcMain.on('ipc-example', async (event, arg) => {
   event.reply('ipc-example', msgTemplate('pong'));
 });
 
-ipcMain.handle('play-alert-sound', async () => {
-  // const filePathSound1 = path.join(__dirname, 'quick-tone.wav');
-  // const filePathSound2 = path.join(__dirname, 'que_mira_bobo.mp3');
-  const filePathSound1 = `${process.resourcesPath}\\assets\\quick-tone.wav`;
-  const filePathSound2 = `${process.resourcesPath}\\assets\\que_mira_bobo.mp3`;
-  sound
-    .play(filePathSound1)
-    .then(() => {
-      sound.play(filePathSound2);
-    })
-    .catch(console.error);
+ipcMain.handle('play-alert-sound', async (_, soundName) => {
+  // const filePathSound = path.join(__dirname, `../../assets/${soundName}`);
+  const filePathSound = `${process.resourcesPath}\\assets\\${soundName}`;
+  sound.play(filePathSound);
 });
 
 ipcMain.handle('getShirtAvailability', async () => {
   const axiosResponse = await axios.get(
     'https://www.adidas.com.ar/api/products/IB3593/availability'
   );
+
   const { data, status, statusText, headers } = axiosResponse;
 
   return { data, status, statusText, headers };
@@ -95,9 +89,9 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
-    icon: getAssetPath('icon.png'),
+    width: 768,
+    height: 1000,
+    icon: getAssetPath('icon.jpg'),
     webPreferences: {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')

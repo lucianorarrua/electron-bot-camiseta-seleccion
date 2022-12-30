@@ -19,6 +19,7 @@ import './index.css';
 import CardInput from 'renderer/CardInput';
 import TimerProgress from 'renderer/TimerProgress';
 import ProductVariationTable from 'renderer/ProductVariationTable';
+import InfoPopover from 'renderer/InfoPopover';
 
 const getShirtAvailability =
   window?.electron?.ipcRenderer?.getShirtAvailability;
@@ -81,8 +82,14 @@ export default function Main() {
         duration: 9000,
         isClosable: true,
       });
-      console.error('❌❌❌');
-      console.error(error);
+    }
+  }
+
+  function playTicksSound(ticks = 3) {
+    for (let index = 0; index < ticks; index += 1) {
+      setTimeout(() => {
+        playAlertSound('quick-tone.wav');
+      }, index * 1250);
     }
   }
 
@@ -109,7 +116,7 @@ export default function Main() {
       isClosable: true,
     });
     if (isSoundEnabled) {
-      playAlertSound();
+      playTicksSound();
     }
     focusWindow();
   }
@@ -188,6 +195,15 @@ export default function Main() {
           }}
         />
       </Box>
+      <Box
+        position="fixed"
+        top="60px"
+        right="10px"
+        bg="whiteAlpha.700"
+        borderRadius={4}
+      >
+        <InfoPopover />
+      </Box>
 
       <VStack
         divider={<StackDivider borderColor="gray.200" />}
@@ -195,8 +211,11 @@ export default function Main() {
         justifyContent="end"
       >
         <Box w="100%" paddingX={8} paddingY={4} bg="whiteAlpha.700">
-          <Text mb="8px" as="b" color="blue.500">
+          <Text mb="3px" as="b" color="blue.500">
             Tiempo de actualización
+          </Text>
+          <Text mb="5px" as="p" color="blue.400" fontSize="sm">
+            Deslizar para modificar tiempo
           </Text>
           <Slider
             value={checkInterval}
@@ -232,8 +251,11 @@ export default function Main() {
           </Slider>
         </Box>
         <Box w="100%" paddingX={8} paddingY={4} bg="whiteAlpha.700">
-          <Text mb="8px" as="b" color="blue.500">
-            Talle de interés
+          <Text mb="3px" as="b" color="blue.500">
+            Talles de interés
+          </Text>
+          <Text mb="5px" as="p" color="blue.400" fontSize="sm">
+            Marcar en azul los talles deseados
           </Text>
           <HStack wrap="wrap" spacing={2} justify="center">
             {DEFAULT_WATCH_VARIANTS?.map((dv) => (
@@ -249,8 +271,7 @@ export default function Main() {
           </HStack>
         </Box>
         <Box w="100%" paddingX={8} paddingY={4} bg="whiteAlpha.700">
-          {/* <Progress value={loaderProgessValue} hasStripe colorScheme="yellow" /> */}
-          <Text mb="8px" as="b" color="blue.500">
+          <Text as="b" color="blue.500">
             Próxima actualización
           </Text>
           <TimerProgress

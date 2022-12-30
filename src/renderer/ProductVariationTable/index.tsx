@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   TableContainer,
   Table,
@@ -7,10 +6,11 @@ import {
   Th,
   Td,
   Tbody,
-  Tfoot,
   Text,
   TableCaption,
 } from '@chakra-ui/react';
+
+const playAlertSound = window?.electron?.ipcRenderer?.playAlertSound;
 
 type Props = {
   productVariations: ProductVariation[];
@@ -23,22 +23,27 @@ export default function ProductVariationTable({
   watchedVariantSizes,
   dateReport,
 }: Props) {
+  const clickLinkHandler = () => playAlertSound('que_mira_bobo.mp3');
   return (
     <TableContainer>
       <Table variant="simple">
-        {dateReport && (
-          <TableCaption>
+        <TableCaption>
+          {dateReport && (
             <Text>Fecha de los datos: {dateReport?.toLocaleString()} </Text>
-            <Text
-              as="a"
-              color="blue.500"
-              target="_blank"
-              href="https://www.adidas.com.ar/camiseta-titular-argentina-3-estrellas-2022/IB3593.html"
-            >
-              🔗 Click para ir a comprar
+          )}
+          <Text
+            as="a"
+            target="_blank"
+            href="https://www.adidas.com.ar/camiseta-titular-argentina-3-estrellas-2022/IB3593.html"
+            onClick={clickLinkHandler}
+          >
+            🔗
+            <Text as="u" color="white" fontSize="large">
+              Click acá para ir a comprar ⭐⭐⭐
             </Text>
-          </TableCaption>
-        )}
+          </Text>
+        </TableCaption>
+
         <Thead>
           <Tr>
             <Th>Talle</Th>
